@@ -1,0 +1,39 @@
+<div class="signup-form">
+    <!-- <div class="sign">
+        <button><a routerLink="/login">SignIn</a></button>
+
+     </div> -->
+<h2>Sign Up</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <label>Email</label><br>
+    <input type="text" formControlName="email" class="form-control" />
+    <!-- <span *ngIf="uservalidators  && uservalidators.invalid && uservalidators.touched" style="color:red">this field is required</span><br><br> -->
+    <label>Username</label><br>
+    <input type="text" formControlName="username" class="form-control" />
+    <!-- <span *ngIf="uservalidators  && uservalidators.invalid && uservalidators.touched" style="color:red">this field is required</span><br><br> -->
+    <label>Password</label><br>
+    <input type="password" formControlName="password" class="form-control" />
+    <!-- <span *ngIf="passwordValidators  && passwordValidators.invalid && passwordValidators.touched" style="color:red">this field is required</span><br><br> -->
+    <label>Company</label><br>
+    <input type="text" formControlName="company" class="form-control" />
+    <!-- <div class="btn"> -->
+    <button  type="button" routerLink="/dashboard" (click)="onSubmit(registerForm.value)">submit</button>
+    <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button> -->
+
+<!-- </div> -->
+    </form>
+    <div class="btn">
+        <button [disabled]="registerForm.invalid" routerLink="/dashboard" type="submit">submit1</button>
+        <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button> -->
+    
+    </div>
+    <div class="acc">
+        Already have Account?
+        <div class="sign">
+            <button><a routerLink="/login">Login</a></button>
+    
+         </div>
+    
+    </div>
+
+</div>

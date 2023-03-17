@@ -1,0 +1,34 @@
+<form [formGroup]="loginForm1" (ngSubmit)="loginuser(loginForm1.value)">
+    <div class="login-form">
+            <!-- <li><a routerLink="signup">SignUp</a></li> -->
+
+            <h2>LogIn</h2>
+
+
+            <input type="email" placeholder="Enter Email" name="email" formControlName="email">
+            <br />
+            <!-- <span *ngIf="uservalidators  && uservalidators.invalid && uservalidators.touched" style="color:red">this field is required</span> -->
+            <br />
+            <input type="password" placeholder="Enter Password" name="password" formControlName="password">
+            <br />
+            <!-- <span *ngIf="passwordValidators && passwordValidators.invalid && passwordValidators.touched" style="color:red">This field is required</span> -->
+            <br />
+            <div class="btn">
+                <button   (click)="submit()">Login</button>
+            </div>
+            <div class="btn">
+                <button  >Login 1</button>
+            </div>
+        </div>
+        <div class="acc">
+            Don't have an Account?
+            <div class="sign">
+                <button><a routerLink="/signup">SignUp</a></button>
+        
+             </div>
+        
+        </div>
+
+</form>
+
+
