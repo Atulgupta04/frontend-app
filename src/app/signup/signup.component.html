@@ -16,17 +16,13 @@
     <!-- <span *ngIf="passwordValidators  && passwordValidators.invalid && passwordValidators.touched" style="color:red">this field is required</span><br><br> -->
     <label>Company</label><br>
     <input type="text" formControlName="company" class="form-control" />
-    <!-- <div class="btn"> -->
-    <button  type="button" routerLink="/dashboard" (click)="onSubmit(registerForm.value)">submit</button>
+    <div class="btn">
+    <button  type="button" routerLink="/dashboard" (click)="onSubmit(registerForm.value)">Signup</button>
     <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button> -->
 
-<!-- </div> -->
-    </form>
-    <div class="btn">
-        <button [disabled]="registerForm.invalid" routerLink="/dashboard" type="submit">submit1</button>
-        <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button> -->
-    
     </div>
+    </form>
+    
     <div class="acc">
         Already have Account?
         <div class="sign">

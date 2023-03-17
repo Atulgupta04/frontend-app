@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-signup',
@@ -16,15 +17,9 @@ export class SignupComponent implements OnInit {
     company: new FormControl('')
   });
  
-  // registerForm = new FormGroup({
-  //   username: new FormControl(''),
-  //   email: new FormControl(''),
-  //   password: new FormControl(''),
-  //   company: new FormControl('')
-  // })
 
 
-  constructor(private fb: FormBuilder, private router : Router) { }
+  constructor(private fb: FormBuilder, private router : Router, private apiService : ApiService) { }
   
   ngOnInit(): void {
     this.registerForm = this.fb.group(
@@ -61,7 +56,11 @@ export class SignupComponent implements OnInit {
 
   onSubmit(data:any){
     console.log(this.registerForm.value);
-    console.log(this.registerForm.controls['username'].value);
+    this.apiService.saveUser(data).subscribe((result)=>{
+      this.apiService.saveUser(this.registerForm)
+      console.log(result)
+    })
+
   }
 
   submit(){
