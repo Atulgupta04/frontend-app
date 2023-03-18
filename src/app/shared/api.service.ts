@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +18,35 @@ export class ApiService {
 
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router : Router) { }
 
   isLoggedIn=new BehaviorSubject<boolean>(false)
+
+  // public userStatus: string = '';
+  // public userStatusChanges: BehaviorSubject<string> = new BehaviorSubject<string>(this.userStatus);
+
+  // setUserStatus(userStatus: any): void {
+  //   this.userStatus = userStatus;
+  //   this.userStatusChanges.next(userStatus);
+  // }
 
   saveurl="http://localhost:3000/register"
   loginurl="http://localhost:3000/login"
 
   users(data: any){
+    // const headers = new HttpHeaders()
+    // .set('Content-Type', 'application/json')
     this.isLoggedIn.next(true);
   
     return this.http.post(this.loginurl,data)
+     //send a post request to the 
+  //    this.http.post("loginurl", JSON.stringify(data), {headers: headers}).subscribe(res => {
+  //     //set the token to localStorage
+  //     localStorage.setItem("access_token", );
+  //     this.setUserStatus(res["token"]);
+  //     console.log(res["token"])
+  //     this.router.navigate(["/dashboard"]);
+  // });
   }
   
   saveUser(data: any){
